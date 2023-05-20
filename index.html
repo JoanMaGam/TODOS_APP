@@ -14,12 +14,60 @@
 
 <body>
 
+    <header class="container p-0 col-md-8 col-lg-6">
+        <div class="container p-0 bg-light border-top border-dark border-5">
 
+            <div class="p-3 ">
+                <form id="form" class="row gap-2 ms-1" action="submit" method="get">
+                    <input id="inputTask" class="p-1 col-4" type="text" name="task" placeholder="Introduce la tarea">
 
+                    <select id="selectPriority" class="p-1 col-4" name="selectPriority">
+                        <option id="op1" value="defaultOption" selected>Selecciona una prioridad</option>
+                        <option id="op2" value="day">Diaria</option>
+                        <option id="op3" value="week">Semanal</option>
+                        <option id="op4" value="month">Mensual</option>
+                    </select>
+                    <button id="btnSave" type="submit" class="btn btn-outline-secondary col-2 p-1">Guardar</button>
+                </form>
+            </div>
 
+            <div class="container d-flex align-items-baseline p-3 gap-2 bg-dark">
+                <div>
+                    <select id="selectTask" class="p-1" name="selectTasks">
+                        <option id="opt1" value="defOption" selected>Todas las tareas</option>
+                        <option id="opt2" value="day">Diaria</option>
+                        <option id="opt3" value="week">Semanal</option>
+                        <option id="opt4" value="month">Mensual</option>
+                    </select>
+                </div>
+                <div>
+                    <input id="searchTask" class="p-1" type="text" placeholder="Busca algo">
+                </div>
+            </div>
 
+        </div>
+    </header>
+    <main>
+        <section id="taskSection" class="container p-0 col-md-8 col-lg-6 bg-dark">
+            <ul id="ulTask" class="row gap-1 bg-dark p-0 m-0">
+                <li id="noTasks" class="liTaskCSS bg-light">
+                    <p class="pCSS">NO HAY TAREAS</p>
 
-
+                </li>
+                <!-- 
+                <li class="liTaskCSS">
+                    <p id="task" class="pCSS">Lorem ent incidunt corrupti quos nesciunt.</p>
+                    <button id="btnDelete" class="btnCSS">Eliminar</button>
+                </li> 
+                -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div class="container p-2 col-md-8 col-lg-6 bg-dark text-white font-weight-bold"><strong>APP TODO's
+                Joan</strong>
+        </div>
+    </footer>
 
     <script src="./js/functions.js"></script>
     <script src="./js/main.js"></script>

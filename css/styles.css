@@ -1,0 +1,29 @@
+.liTaskCSS {
+    display: flex;
+    background-color: lightgreen;
+    width: 100%;
+    min-height: 5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    font-size: 1.125rem;
+}
+
+.pCSS {
+    margin: 1rem;
+}
+
+.btnCSS {
+    height: 100%;
+    padding: 1.25rem;
+    background-color: tomato;
+    color: white;
+    border: none;
+    transition: 1s;
+}
+
+.btnCSS:hover {
+    padding: 0 3.125rem 0 1.25rem;
+    background-color: tomato;
+    color: white;
+}
