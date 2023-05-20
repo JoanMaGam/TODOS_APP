@@ -1,6 +1,6 @@
 .liTaskCSS {
     display: flex;
-    background-color: lightgreen;
+    background-color: white;
     width: 100%;
     min-height: 5rem;
     align-items: center;
@@ -26,4 +26,16 @@
     padding: 0 3.125rem 0 1.25rem;
     background-color: tomato;
     color: white;
+}
+
+.urgente {
+    background-color: lightcoral;
+}
+
+.diaria {
+    background-color: lightblue;
+}
+
+.mensual {
+    background-color: lightgreen;
 }
