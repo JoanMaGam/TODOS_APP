@@ -55,20 +55,28 @@ function addTask(pTask, pList) {
 
 
 function getDataForm(event) {
+
     event.preventDefault();
 
-    console.log(event.target.inputTask.value);
-    console.log(event.target.selectPriority.value);
+    if ((event.target.inputTask.value.length !== 0 && event.target.selectPriority.value === 'defaultOption') || (event.target.inputTask.value === '' || event.target.selectPriority === 'defaultOption') || (event.target.inputTask.value === '' && event.target.selectPriority === 'defaultOption')) {
+        form.reset();
+        return alert('Los campos no pueden estar vacíos')
 
-    const newTask = {
-        id: id,
-        title: event.target.inputTask.value,
-        priority: event.target.selectPriority.value
+    } else {
+        console.log(event.target.inputTask.value);
+        console.log(event.target.inputTask.value.length);
+        console.log(event.target.selectPriority.value);
+
+        const newTask = {
+            id: id,
+            title: event.target.inputTask.value,
+            priority: event.target.selectPriority.value
+        }
+
+        addTask(newTask, taskList);
+
+        form.reset();
     }
-
-    addTask(newTask, taskList);
-
-    form.reset();
 }
 
 function deleteTask(event) {
