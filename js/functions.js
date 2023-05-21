@@ -43,7 +43,7 @@ function printOneTask(pTask, pDom) {
 
 // const selectPriority = document.querySelector('#selectPriority')
 // selectPriority.addEventListener('change', aplyPriority)
-console.log(selectPriority.value)
+// console.log(selectPriority.value)
 // function aplyPriority(event) {
 //     let priority = event.target.value
 //     console.log(priority);
@@ -89,4 +89,24 @@ function addTask(pTask, pList) {
     pList.push(pTask);
     printOneTask(pTask, ulTask);
     id++
+}
+
+form.addEventListener('submit', getDataForm);
+
+function getDataForm(event) {
+    event.preventDefault();
+
+    console.log(event.target.inputTask.value);
+    console.log(event.target.selectPriority.value);
+
+    const newTask = {
+        id: id,
+        title: event.target.inputTask.value,
+        priority: event.target.selectPriority.value
+    }
+    console.log(newTask);
+    addTask(newTask, taskList);
+    console.log(taskList);
+
+    form.reset();
 }

@@ -15,4 +15,4 @@ const taskList = [
         'priority': 'mensual',
     }
 ]
-let id = 4;
+let id = 4; //revisar esto cuando se eliminen todos los elementos de la lista como se asigna el id
