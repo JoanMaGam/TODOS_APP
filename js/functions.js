@@ -10,12 +10,14 @@ function printTasks(pList, pDom) {
 </li>  */}
 
 function printOneTask(pTask, pDom) {
+    //este if() controla que cuando no hay tareas y añadimos una tarea, no se pinte el defaultLi
+    if (pDom.innerHTML === defaultLi) {
+        pDom.innerHTML = '';
+    }
 
     const li = document.createElement('li');
     li.classList.add('liTaskCSS');
-    // if (selectPriority.value === 'urgent') {
-    //     li.classList.add('.urgent')
-    // }
+
     if (pTask.priority === 'urgente') {
         li.classList.add('urgente');
     } else if (pTask.priority === 'diaria') {
@@ -34,63 +36,20 @@ function printOneTask(pTask, pDom) {
     btnDel.id = 'btdDelete';
     btnDel.classList.add('btnCSS');
     btnDel.textContent = 'Eliminar';
-    btnDel.addEventListener('click', deleteTask)
+    btnDel.addEventListener('click', deleteTask);
     btnDel.dataset.id = pTask.id;
 
     li.append(p, btnDel);
 
     pDom.appendChild(li);
-
 }
 
-// const selectPriority = document.querySelector('#selectPriority')
-// selectPriority.addEventListener('change', aplyPriority)
-// console.log(selectPriority.value)
-// function aplyPriority(event) {
-//     let priority = event.target.value
-//     console.log(priority);
-//     switch (priority) {
-//         case 'defaultOption':
-//             return alert('Elige una prioridad')
-//             break;
-//         case 'urgent':
-//             return '.urgente'
-//             break;
-//         case 'daily':
-//             return '.diaria'
-//             break;
-//         case 'monthly':
-//             return '.mensual'
-//             break;
-//     }
-// }
-
-// let priority = aplyPriority(event)
-
-// btnSave.addEventListener('click', addTask);
-
-// console.log(inputTask.value);
-
-// function addTask(event) {
-//     const filteredList = {
-//         'id': taskList.length + 1,
-//         'title': inputTask.value,
-//         'priority': selectPriority.value
-//     };
-
-//     taskList.push(filteredList);
-
-
-//     // id++
-//     console.log(taskList)
-//     printOneTask()
-// }
-// addTask();
 
 function addTask(pTask, pList) {
     pList.push(pTask);
     printOneTask(pTask, ulTask);
-    id++
+    id++;
+    console.log(pList);
 }
 
 
@@ -106,9 +65,8 @@ function getDataForm(event) {
         title: event.target.inputTask.value,
         priority: event.target.selectPriority.value
     }
-    console.log(newTask);
+
     addTask(newTask, taskList);
-    console.log(taskList);
 
     form.reset();
 }
@@ -121,6 +79,13 @@ function deleteTask(event) {
     //Borrado array
     deleteArray(parseInt(event.target.dataset.id), taskList);
     console.log(taskList);
+
+    //este if() controla que cuando no haya tareas se pinte el defaultLi
+    if (taskList.length === 0) {
+        ulTask.innerHTML = defaultLi;
+    }
+    // console.log(event.target.dataset.id);
+    // event.target.dataset.id = 0 //es necessario que el id se reinicie desde 0 si borras todas las tareas?
 }
 
 function deleteArray(pId, pList) {
