@@ -12,3 +12,5 @@ form.addEventListener('submit', getDataForm);
 
 const form2 = document.querySelector('#form2');
 selectTask.addEventListener('change', selectOption);
+
+document.addEventListener('keyup', search);
