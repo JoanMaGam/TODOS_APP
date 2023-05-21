@@ -35,6 +35,7 @@ function printOneTask(pTask, pDom) {
     btnDel.classList.add('btnCSS');
     btnDel.textContent = 'Eliminar';
     btnDel.addEventListener('click', deleteTask)
+    btnDel.dataset.id = pTask.id;
 
     li.append(p, btnDel);
 
@@ -117,9 +118,14 @@ function deleteTask(event) {
     const liDel = event.target.parentNode;
     liDel.parentNode.removeChild(liDel);
 
-    console.log(taskList);
     //Borrado array
-    let newList = deleteArray(taskList);
-    console.log(newList);
+    deleteArray(parseInt(event.target.dataset.id), taskList);
+    console.log(taskList);
+}
 
+function deleteArray(pId, pList) {
+    let position = pList.findIndex(task => task.id === pId);
+    if (position !== -1) {
+        pList.splice(position, 1);
+    }
 }
