@@ -10,7 +10,6 @@ function printTasks(pList, pDom) {
 </li>  */}
 
 function printOneTask(pTask, pDom) {
-    const selectPriority = document.querySelector('#selectPriority');
 
     const li = document.createElement('li');
     li.classList.add('liTaskCSS');
@@ -42,7 +41,7 @@ function printOneTask(pTask, pDom) {
 
 }
 
-const selectPriority = document.querySelector('#selectPriority')
+// const selectPriority = document.querySelector('#selectPriority')
 // selectPriority.addEventListener('change', aplyPriority)
 console.log(selectPriority.value)
 // function aplyPriority(event) {
@@ -66,3 +65,22 @@ console.log(selectPriority.value)
 
 // let priority = aplyPriority(event)
 
+btnSave.addEventListener('click', addTask);
+
+console.log(inputTask.value);
+
+function addTask(event) {
+    const filteredList = {
+        'id': taskList.length + 1,
+        'title': inputTask.value,
+        'priority': selectPriority.value
+    };
+
+    taskList.push(filteredList);
+
+
+    // id++
+    console.log(taskList)
+    printOneTask()
+}
+addTask();
