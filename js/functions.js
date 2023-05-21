@@ -65,22 +65,28 @@ console.log(selectPriority.value)
 
 // let priority = aplyPriority(event)
 
-btnSave.addEventListener('click', addTask);
+// btnSave.addEventListener('click', addTask);
 
-console.log(inputTask.value);
+// console.log(inputTask.value);
 
-function addTask(event) {
-    const filteredList = {
-        'id': taskList.length + 1,
-        'title': inputTask.value,
-        'priority': selectPriority.value
-    };
+// function addTask(event) {
+//     const filteredList = {
+//         'id': taskList.length + 1,
+//         'title': inputTask.value,
+//         'priority': selectPriority.value
+//     };
 
-    taskList.push(filteredList);
+//     taskList.push(filteredList);
 
 
-    // id++
-    console.log(taskList)
-    printOneTask()
+//     // id++
+//     console.log(taskList)
+//     printOneTask()
+// }
+// addTask();
+
+function addTask(pTask, pList) {
+    pList.push(pTask);
+    printOneTask(pTask, ulTask);
+    id++
 }
-addTask();
