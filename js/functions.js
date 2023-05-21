@@ -34,6 +34,7 @@ function printOneTask(pTask, pDom) {
     btnDel.id = 'btdDelete';
     btnDel.classList.add('btnCSS');
     btnDel.textContent = 'Eliminar';
+    btnDel.addEventListener('click', deleteTask)
 
     li.append(p, btnDel);
 
@@ -91,7 +92,7 @@ function addTask(pTask, pList) {
     id++
 }
 
-form.addEventListener('submit', getDataForm);
+
 
 function getDataForm(event) {
     event.preventDefault();
@@ -109,4 +110,16 @@ function getDataForm(event) {
     console.log(taskList);
 
     form.reset();
+}
+
+function deleteTask(event) {
+    //Borrado interfaz
+    const liDel = event.target.parentNode;
+    liDel.parentNode.removeChild(liDel);
+
+    console.log(taskList);
+    //Borrado array
+    let newList = deleteArray(taskList);
+    console.log(newList);
+
 }
