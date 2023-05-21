@@ -102,3 +102,28 @@ function deleteArray(pId, pList) {
         pList.splice(position, 1);
     }
 }
+
+function selectOption(event) {
+    event.preventDefault();
+
+    switch (event.target.value) {
+        case 'urgente':
+            filterByPriority(taskList, event.target.value);
+            break;
+        case 'diaria':
+            filterByPriority(taskList, event.target.value);
+            break;
+        case 'mensual':
+            filterByPriority(taskList, event.target.value);
+            break;
+        default:
+            printTasks(taskList, ulTask);
+            break;
+    }
+}
+
+
+function filterByPriority(pList, pPriority) {
+    let results = pList.filter(task => task.priority === pPriority);
+    printTasks(results, ulTask);
+}

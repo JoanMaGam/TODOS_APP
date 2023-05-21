@@ -9,3 +9,6 @@ printTasks(taskList, ulTask);
 
 const form = document.querySelector('#form');
 form.addEventListener('submit', getDataForm);
+
+const form2 = document.querySelector('#form2');
+selectTask.addEventListener('change', selectOption);

@@ -33,18 +33,17 @@
             </div>
 
             <div class="container d-flex align-items-baseline p-3 gap-2 bg-dark">
-                <div>
-                    <select id="selectTask" type="change" class="p-1" name="selectTasks">
-                        <option id="opt1" data-id="opt1" value="defOption" selected>Todas las tareas</option>
-                        <option id="opt2" value="day">Urgente</option>
-                        <option id="opt3" value="week">Diaria</option>
-                        <option id="opt4" value="month">Mensual</option>
+                <form id="form2" action="submit" method="get">
+                    <select id="selectTask" type="change" class="p-1" name="selectTask">
+                        <option id="opt1" value="defOption" data-def="defOption" selected>Todas las tareas</option>
+                        <option id="opt2" value="urgente">Urgente</option>
+                        <option id="opt3" value="diaria">Diaria</option>
+                        <option id="opt4" value="mensual">Mensual</option>
                     </select>
-                </div>
-                <div>
                     <input id="searchTask" class="p-1" type="text" placeholder="Busca algo">
-                </div>
+                </form>
             </div>
+        </div>
 
         </div>
     </header>
