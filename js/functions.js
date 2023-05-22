@@ -129,31 +129,16 @@ function filterByPriority(pList, pPriority) {
 }
 
 function search(event) {
-    let search = input.value
+    let search = event.target.value
+    console.log(search);
     let tasks = searchTask(search, taskList)
-    if (event.key === 'Space') {
-        printTasks(tasks, ulTask)
+    console.log(tasks);
+    // if (event.key === 'Space') {
+    printTasks(tasks, ulTask)
 
 
-    }
-
-
-
-    //     taskList.forEach(task => {
-    //         if (task.title.toLowerCase().includes(event.target.value)) {
-    //             ulTask.innerHTML = '';
-    //             printOneTask(task, ulTask)
-    //         }
-
-    //     })
     // }
-    event.target.value = '';
-    // let text = '';
-    // text += event.key;
-    // console.log(text);
-    // console.log(event.key)
-    // console.log(event.keyCode)
 }
 function searchTask(pWord, pList) {
-    return pList.filter(task => task.title.toLowerCase.includes(pWord.toLowerCase()))
+    return pList.filter(task => task.title.toLowerCase().includes(pWord.toLowerCase()));
 }
