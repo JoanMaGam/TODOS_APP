@@ -10,7 +10,8 @@ printTasks(taskList, ulTask);
 const form = document.querySelector('#form');
 form.addEventListener('submit', getDataForm);
 
-const form2 = document.querySelector('#form2');
+const selectTask = document.querySelector('#selectTask');
 selectTask.addEventListener('change', selectOption);
 
-document.addEventListener('keyup', search);
+const sT = document.querySelector('#searchTask')
+sT.addEventListener('keyup', getSearch);

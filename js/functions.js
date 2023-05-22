@@ -128,7 +128,7 @@ function filterByPriority(pList, pPriority) {
     printTasks(results, ulTask);
 }
 
-function search(event) {
+function getSearch(event) {
     let search = event.target.value
     console.log(search);
     let tasks = searchTask(search, taskList)
