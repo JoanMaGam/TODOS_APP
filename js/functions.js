@@ -47,6 +47,7 @@ function printOneTask(pTask, pDom) {
 
 function addTask(pTask, pList) {
     pList.push(pTask);
+    // localStorage.setItem('taskList', JSON.stringify(pList));
     printOneTask(pTask, ulTask);
     id++;
     console.log(pList);
