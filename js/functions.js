@@ -4,6 +4,7 @@ const defaultLi = `<li id="noTasks" class="liTaskCSS bg-light">
 </li>`;
 
 function printTasks(pList, pDom) {
+    console.log(pList);
     pDom.innerHTML = '';
     pList.forEach(task => printOneTask(task, pDom));
 }
@@ -66,6 +67,7 @@ function init() { //<------------
     console.log(lista);
     console.log('toi aki');
     if (lista.length !== 0) {
+        console.log('ei');
         printTasks(lista, ulTask)
     } else {
         printTasks(taskList, ulTask)
