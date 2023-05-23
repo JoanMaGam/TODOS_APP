@@ -1,3 +1,7 @@
+//creo el esta variable global aquí por que la voy a utilizar en las funciones y si la creo en main.js me da error pq me dice que no esta declarada.
+const defaultLi = `<li id="noTasks" class="liTaskCSS bg-light">
+<p class="pCSS">NO HAY TAREAS</p>
+</li>`;
 
 function printTasks(pList, pDom) {
     pDom.innerHTML = '';
@@ -47,12 +51,27 @@ function printOneTask(pTask, pDom) {
 
 function addTask(pTask, pList) {
     pList.push(pTask);
-    // localStorage.setItem('taskList', JSON.stringify(pList));
-    printOneTask(pTask, ulTask);
+    localStorage.setItem('taskList', JSON.stringify(pList));
+    // printOneTask(pTask, ulTask); //<----------
     id++;
     console.log(pList);
 }
 
+function init() { //<------------
+    // if (taskList.length > 0) {
+    //     localStorage.setItem('taskList', JSON.stringify(taskList));
+    // }
+    let lista = JSON.parse(localStorage.getItem('taskList'))
+    console.log('toi aki');
+    console.log(lista);
+    console.log('toi aki');
+    if (lista.length !== 0) {
+        printTasks(lista, ulTask)
+    } else {
+        printTasks(taskList, ulTask)
+    }
+}
+init()
 
 
 function getDataForm(event) {
@@ -75,7 +94,7 @@ function getDataForm(event) {
         }
 
         addTask(newTask, taskList);
-
+        printOneTask(newTask, ulTask)//<----------
         form.reset();
     }
 }
@@ -106,7 +125,6 @@ function deleteArray(pId, pList) {
 
 function selectOption(event) {
     event.preventDefault();
-
     switch (event.target.value) {
         case 'defOption':
             if (taskList.length > 0) {
