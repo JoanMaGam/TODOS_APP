@@ -108,6 +108,13 @@ function selectOption(event) {
     event.preventDefault();
 
     switch (event.target.value) {
+        case 'defOption':
+            if (taskList.length > 0) {
+                printTasks(taskList, ulTask);
+            } else {
+                ulTask.innerHTML = defaultLi;
+            }
+            break;
         case 'urgente':
             filterByPriority(taskList, event.target.value);
             break;
@@ -117,29 +124,27 @@ function selectOption(event) {
         case 'mensual':
             filterByPriority(taskList, event.target.value);
             break;
-        default:
-            printTasks(taskList, ulTask);
-            break;
     }
 }
 
 
 function filterByPriority(pList, pPriority) {
     let results = pList.filter(task => task.priority === pPriority);
-    printTasks(results, ulTask);
+    if (results.length > 0) {
+        printTasks(results, ulTask);
+    } else {
+        ulTask.innerHTML = defaultLi;
+    }
 }
 
 function getSearch(event) {
-    let search = event.target.value
+    let search = event.target.value;
     console.log(search);
     let tasks = searchTask(search, taskList)
     console.log(tasks);
-    // if (event.key === 'Space') {
     printTasks(tasks, ulTask)
-
-
-    // }
 }
+
 function searchTask(pWord, pList) {
     return pList.filter(task => task.title.toLowerCase().includes(pWord.toLowerCase()));
 }
