@@ -1,7 +1,5 @@
 //creo el esta variable global aquí por que la voy a utilizar en las funciones y si la creo en main.js me da error pq me dice que no esta declarada.
-const defaultLi = `<li id="noTasks" class="liTaskCSS bg-light">
-<p class="pCSS">NO HAY TAREAS</p>
-</li>`;
+const defaultLi = `<li id="noTasks" class="liTaskCSS bg-light"><p class="pCSS">NO HAY TAREAS</p></li>`;
 
 function printTasks(pList, pDom) {
     console.log(pList);
@@ -9,14 +7,18 @@ function printTasks(pList, pDom) {
     pList.forEach(task => printOneTask(task, pDom));
 }
 
-{/* <li class="liTaskCSS">
-    <p id="task" class="pCSS">Lorem ent incidunt corrupti quos nesciunt.</p>
-    <button id="btnDelete" class="btnCSS">Eliminar</button>
-</li>  */}
+// {/* <li class="liTaskCSS">
+//     <p id="task" class="pCSS">Lorem ent incidunt corrupti quos nesciunt.</p>
+//     <button id="btnDelete" class="btnCSS">Eliminar</button>
+// </li>  */}
 
 function printOneTask(pTask, pDom) {
     //este if() controla que cuando no hay tareas y añadimos una tarea, no se pinte el defaultLi
-    if (pDom.innerHTML === defaultLi) {
+    console.log(pTask);
+    console.log(typeof pTask);
+    console.log(pDom.innerHTML);
+    if (pDom.innerHTML.includes(`<li id="noTasks" class="liTaskCSS bg-light"><p class="pCSS">NO HAY TAREAS</p></li>`)) {
+        console.log('entra aki??????');
         pDom.innerHTML = '';
     }
 
@@ -52,28 +54,30 @@ function printOneTask(pTask, pDom) {
 
 function addTask(pTask, pList) {
     pList.push(pTask);
-    localStorage.setItem('taskList', JSON.stringify(pList));
+    // localStorage.setItem('taskList', JSON.stringify(pList));
     // printOneTask(pTask, ulTask); //<----------
     id++;
+    console.log('toi en addtask');
     console.log(pList);
+    console.log('toi en addtask');
 }
 
-function init() { //<------------
-    // if (taskList.length > 0) {
-    //     localStorage.setItem('taskList', JSON.stringify(taskList));
-    // }
-    let lista = JSON.parse(localStorage.getItem('taskList'))
-    console.log('toi aki');
-    console.log(lista);
-    console.log('toi aki');
-    if (lista.length !== 0) {
-        console.log('ei');
-        printTasks(lista, ulTask)
-    } else {
-        printTasks(taskList, ulTask)
-    }
-}
-init()
+// function init() { //<------------
+//     // if (taskList.length > 0) {
+//     //     localStorage.setItem('taskList', JSON.stringify(taskList));
+//     // }
+//     let lista = JSON.parse(localStorage.getItem('taskList'))
+//     console.log('toi aki');
+//     console.log(lista);
+//     console.log('toi aki');
+//     if (lista.length !== 0) {
+//         console.log('ei');
+//         printTasks(lista, ulTask)
+//     } else {
+//         printTasks(taskList, ulTask)
+//     }
+// }
+// init()
 
 
 function getDataForm(event) {
@@ -85,6 +89,9 @@ function getDataForm(event) {
         return alert('Los campos no pueden estar vacíos')
 
     } else {
+        console.log('a____ki');
+        // ulTask.innerHTML = defaultLi;
+        console.log(ulTask);
         console.log(event.target.inputTask.value);
         console.log(event.target.inputTask.value.length);
         console.log(event.target.selectPriority.value);
