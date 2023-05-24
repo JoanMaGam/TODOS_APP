@@ -47,7 +47,7 @@ function printOneTask(pTask, pDom) {
 
 function addTask(pTask, pList) {
     pList.push(pTask);
-    // localStorage.setItem('taskList', JSON.stringify(pList));
+    localStorage.setItem('taskList', JSON.stringify(pList));
     id++;
     console.log(pList);
 }
@@ -63,9 +63,9 @@ function getDataForm(event) {
         return alert('Los campos no pueden estar vacíos')
 
     } else {
-        console.log(event.target.inputTask.value);
-        console.log(event.target.inputTask.value.length);
-        console.log(event.target.selectPriority.value);
+        // console.log(event.target.inputTask.value);
+        // console.log(event.target.inputTask.value.length);
+        // console.log(event.target.selectPriority.value);
 
         const newTask = {
             id: id,
