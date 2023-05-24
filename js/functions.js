@@ -1,3 +1,9 @@
+const defaultLi = `<li id="noTasks" class="liTaskCSS bg-light">
+                        <p class="pCSS">NO HAY TAREAS</p>
+                   </li>`;
+
+ulTask.innerHTML = defaultLi;
+
 
 function printTasks(pList, pDom) {
     pDom.innerHTML = defaultLi;
@@ -51,6 +57,23 @@ function addTask(pTask, pList) {
     id++;
     console.log(pList);
 }
+function init() { //<------------
+    // if (taskList.length > 0) {
+    //     localStorage.setItem('taskList', JSON.stringify(taskList));
+    // }
+    let lista = JSON.parse(localStorage.getItem('taskList'))
+    console.log('toi aki');
+    console.log(lista);
+    console.log('toi aki');
+    if (lista.length !== 0) {
+        console.log('lista es distinta de 0 y pinta la lista.JSON.parse');
+        printTasks(lista, ulTask)
+    } else {
+        console.log('lista es 0 y pinta taskList');
+        printTasks(taskList, ulTask)
+    }
+}
+init()
 
 
 
