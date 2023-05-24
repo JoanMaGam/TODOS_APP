@@ -61,10 +61,6 @@ function init() {
 
     const lista = (localStorage.getItem('taskList')) ? JSON.parse(localStorage.getItem('taskList')) : [];
 
-    console.log('toi aki');
-    console.log(lista);
-    console.log('toi aki');
-
     if (lista.length !== 0) {
         console.log('lista es distinta de 0 y pinta la lista.JSON.parse');
         printTasks(lista, ulTask)
@@ -87,10 +83,6 @@ function getDataForm(event) {
         return alert('Los campos no pueden estar vacíos')
 
     } else {
-        // console.log(event.target.inputTask.value);
-        // console.log(event.target.inputTask.value.length);
-        // console.log(event.target.selectPriority.value);
-
         const newTask = {
             id: id,
             title: event.target.inputTask.value,
@@ -112,6 +104,12 @@ function deleteTask(event) {
     deleteArray(parseInt(event.target.dataset.id), taskList);
     console.log(event.target.dataset.id);
     console.log(taskList);
+
+    //Borrado del localStorage
+    // localStorage.forEach(element => {
+    //     console.log(element);
+    // });
+    // removeItem'taskList')
 
     //este if() controla que cuando no haya tareas se pinte el defaultLi
     if (taskList.length === 0) {
@@ -152,16 +150,11 @@ function filterByPriority(pList, pPriority) {
 }
 
 function getSearch(event) {
-    let search = event.target.value
-    console.log(search);
-    let tasks = searchTask(search, taskList)
-    console.log(tasks);
-    // if (event.key === 'Space') {
-    printTasks(tasks, ulTask)
-
-
-    // }
+    let search = event.target.value;
+    let tasks = searchTask(search, taskList);
+    printTasks(tasks, ulTask);
 }
+
 function searchTask(pWord, pList) {
     return pList.filter(task => task.title.toLowerCase().includes(pWord.toLowerCase()));
 }
