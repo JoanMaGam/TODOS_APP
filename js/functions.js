@@ -11,12 +11,12 @@ function printTasks(pList, pDom) {
 }
 
 {/* <li class="liTaskCSS">
-    <p id="task" class="pCSS">Lorem ent incidunt corrupti quos nesciunt.</p>
+    <p id="task" class="pCSS">Titulo tarea</p>
     <button id="btnDelete" class="btnCSS">Eliminar</button>
 </li>  */}
 
 function printOneTask(pTask, pDom) {
-    //este if() controla que cuando no hay tareas y añadimos una tarea, no se pinte el defaultLi
+    //este if() controla que cuando no hay tareas y añadimos una tarea, no se pinte el defaultLi:
     if (pDom.innerHTML === defaultLi) {
         pDom.innerHTML = '';
     }
@@ -54,7 +54,6 @@ function addTask(pTask, pList) {
     pList.push(pTask);
     localStorage.setItem('taskList', JSON.stringify(pList));
     id++;
-    console.log(pList);
 }
 
 function init() {
@@ -71,7 +70,6 @@ function init() {
 }
 
 init()
-
 
 
 function getDataForm(event) {
@@ -96,23 +94,21 @@ function getDataForm(event) {
 }
 
 function deleteTask(event) {
+    //Saco el array del localStorage
+    const lista = (localStorage.getItem('taskList')) ? JSON.parse(localStorage.getItem('taskList')) : [];
+
     //Borrado interfaz
     const liDel = event.target.parentNode;
     liDel.parentNode.removeChild(liDel);
 
     //Borrado array
-    deleteArray(parseInt(event.target.dataset.id), taskList);
-    console.log(event.target.dataset.id);
-    console.log(taskList);
+    deleteArray(parseInt(event.target.dataset.id), lista);
 
-    //Borrado del localStorage
-    // localStorage.forEach(element => {
-    //     console.log(element);
-    // });
-    // removeItem'taskList')
+    // Vuelvo a guardar el array sin el objeto eliminado en el localStorage
+    localStorage.setItem('taskList', JSON.stringify(lista));
 
-    //este if() controla que cuando no haya tareas se pinte el defaultLi
-    if (taskList.length === 0) {
+    //Este if controla que si no hay tareas se pinte el defaultLi:
+    if (lista.length === 0) {
         ulTask.innerHTML = defaultLi;
     }
 }
@@ -122,6 +118,7 @@ function deleteArray(pId, pList) {
     if (position !== -1) {
         pList.splice(position, 1);
     }
+    return pList;
 }
 
 function selectOption(event) {
