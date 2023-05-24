@@ -65,12 +65,12 @@ function init() { //<------------
     console.log('toi aki');
     console.log(lista);
     console.log('toi aki');
-    if (lista.length !== 0) {
-        console.log('lista es distinta de 0 y pinta la lista.JSON.parse');
-        printTasks(lista, ulTask)
-    } else {
+    if (lista === null) {
         console.log('lista es 0 y pinta taskList');
         printTasks(taskList, ulTask)
+    } else if (lista.length !== 0) {
+        console.log('lista es distinta de 0 y pinta la lista.JSON.parse');
+        printTasks(lista, ulTask)
     }
 }
 init()
