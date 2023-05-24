@@ -5,7 +5,8 @@ const defaultLi = `<li id="noTasks" class="liTaskCSS bg-light">
                         <p class="pCSS">NO HAY TAREAS</p>
                    </li>`;
 
-printTasks(taskList, ulTask);
+ulTask.innerHTML = defaultLi;
+// printTasks(taskList, ulTask);
 
 const form = document.querySelector('#form');
 form.addEventListener('submit', getDataForm);

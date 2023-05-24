@@ -23,10 +23,10 @@
                         placeholder="Introduce la tarea">
 
                     <select id="selectPriority" type="change" class="p-1 col-4" name="selectPriority">
-                        <option id="op1" data-id="op1" value="defaultOption" selected>Selecciona una prioridad</option>
-                        <option id="op2" data-id="op2" value="urgente">Urgente</option>
-                        <option id="op3" value="diaria">Daria</option>
-                        <option id="op4" value="mensual">Mensual</option>
+                        <option value="defaultOption" selected>Selecciona una prioridad</option>
+                        <option value="urgente">Urgente</option>
+                        <option value="diaria">Daria</option>
+                        <option value="mensual">Mensual</option>
                     </select>
                     <button id="btnSave" type="submit" class="btn btn-outline-secondary col-2 p-1">Guardar</button>
                 </form>
@@ -35,10 +35,10 @@
             <div class="container d-flex align-items-baseline p-3 gap-2 bg-dark">
                 <form id="form2" action="#" method="get">
                     <select id="selectTask" type="change" class="p-1" name="selectTask">
-                        <option id="opt1" value="defOption" data-def="defOption" selected>Todas las tareas</option>
-                        <option id="opt2" value="urgente">Urgente</option>
-                        <option id="opt3" value="diaria">Diaria</option>
-                        <option id="opt4" value="mensual">Mensual</option>
+                        <option value="defOption" selected>Todas las tareas</option>
+                        <option value="urgente">Urgente</option>
+                        <option value="diaria">Diaria</option>
+                        <option value="mensual">Mensual</option>
                     </select>
                     <input id="searchTask" class="p-1" type="text" placeholder="Busca algo">
                 </form>
@@ -50,12 +50,12 @@
     <main>
         <section id="taskSection" class="container p-0 col-md-8 col-lg-6 bg-dark">
             <ul id="ulTask" class="row gap-1 bg-dark p-0 m-0">
-                <li id="noTasks" class="liTaskCSS bg-light">
+                <!-- <li id="noTasks" class="liTaskCSS bg-light">
                     <p class="pCSS">NO HAY TAREAS</p>
-                </li>
+                </li> -->
                 <!-- 
                 <li class="liTaskCSS">
-                    <p id="task" class="pCSS">Lorem ent incidunt corrupti quos nesciunt.</p>
+                    <p id="task" class="pCSS">Titulo tarea</p>
                     <button id="btnDelete" class="btnCSS">Eliminar</button>
                 </li> 
                 -->

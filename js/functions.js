@@ -1,6 +1,6 @@
 
 function printTasks(pList, pDom) {
-    pDom.innerHTML = '';
+    pDom.innerHTML = defaultLi;
     pList.forEach(task => printOneTask(task, pDom));
 }
 
@@ -87,14 +87,13 @@ function deleteTask(event) {
 
     //Borrado array
     deleteArray(parseInt(event.target.dataset.id), taskList);
+    console.log(event.target.dataset.id);
     console.log(taskList);
 
     //este if() controla que cuando no haya tareas se pinte el defaultLi
     if (taskList.length === 0) {
         ulTask.innerHTML = defaultLi;
     }
-    // console.log(event.target.dataset.id);
-    // event.target.dataset.id = 0 //es necessario que el id se reinicie desde 0 si borras todas las tareas?
 }
 
 function deleteArray(pId, pList) {
