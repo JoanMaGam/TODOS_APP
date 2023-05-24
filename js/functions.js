@@ -50,29 +50,30 @@ function printOneTask(pTask, pDom) {
     pDom.appendChild(li);
 }
 
-
 function addTask(pTask, pList) {
     pList.push(pTask);
     localStorage.setItem('taskList', JSON.stringify(pList));
     id++;
     console.log(pList);
 }
-function init() { //<------------
-    // if (taskList.length > 0) {
-    //     localStorage.setItem('taskList', JSON.stringify(taskList));
-    // }
-    let lista = JSON.parse(localStorage.getItem('taskList'))
+
+function init() {
+
+    const lista = (localStorage.getItem('taskList')) ? JSON.parse(localStorage.getItem('taskList')) : [];
+
     console.log('toi aki');
     console.log(lista);
     console.log('toi aki');
-    if (lista === null) {
-        console.log('lista es 0 y pinta taskList');
-        printTasks(taskList, ulTask)
-    } else if (lista.length !== 0) {
+
+    if (lista.length !== 0) {
         console.log('lista es distinta de 0 y pinta la lista.JSON.parse');
         printTasks(lista, ulTask)
+    } else {
+        console.log('lista es 0 y pinta taskList');
+        printTasks(taskList, ulTask)
     }
 }
+
 init()
 
 
