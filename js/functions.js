@@ -123,19 +123,20 @@ function deleteArray(pId, pList) {
 
 function selectOption(event) {
     event.preventDefault();
+    const lista = (localStorage.getItem('taskList')) ? JSON.parse(localStorage.getItem('taskList')) : [];
 
     switch (event.target.value) {
         case 'urgente':
-            filterByPriority(taskList, event.target.value);
+            filterByPriority(lista, event.target.value);
             break;
         case 'diaria':
-            filterByPriority(taskList, event.target.value);
+            filterByPriority(lista, event.target.value);
             break;
         case 'mensual':
-            filterByPriority(taskList, event.target.value);
+            filterByPriority(lista, event.target.value);
             break;
         default:
-            printTasks(taskList, ulTask);
+            printTasks(lista, ulTask);
             break;
     }
 }
@@ -147,8 +148,9 @@ function filterByPriority(pList, pPriority) {
 }
 
 function getSearch(event) {
+    const lista = (localStorage.getItem('taskList')) ? JSON.parse(localStorage.getItem('taskList')) : [];
     let search = event.target.value;
-    let tasks = searchTask(search, taskList);
+    let tasks = searchTask(search, lista);
     printTasks(tasks, ulTask);
 }
 
