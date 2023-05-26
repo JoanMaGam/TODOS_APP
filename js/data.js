@@ -17,4 +17,4 @@ const taskList = [
 ]
 
 let id = (localStorage.getItem('id')) ? JSON.parse(localStorage.getItem('id')) : 1;
-localStorage.setItem('id', id);
+localStorage.setItem('id', JSON.stringify(id));
