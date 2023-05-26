@@ -33,20 +33,16 @@ function printOneTask(pTask, pDom) {
     }
 
     const p = document.createElement('p');
-    p.id = 'task';
     p.classList.add('pCSS');
     p.textContent = pTask.title;
 
-
     const btnDel = document.createElement('button');
-    btnDel.id = 'btdDelete';
     btnDel.classList.add('btnCSS');
     btnDel.textContent = 'Eliminar';
     btnDel.addEventListener('click', deleteTask);
     btnDel.dataset.id = pTask.id;
 
     li.append(p, btnDel);
-
     pDom.appendChild(li);
 }
 
@@ -58,7 +54,6 @@ function addTask(pTask, pList) {
 }
 
 function init() {
-
     const lista = (localStorage.getItem('taskList')) ? JSON.parse(localStorage.getItem('taskList')) : [];
 
     if (lista.length !== 0) {
