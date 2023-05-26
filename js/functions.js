@@ -54,6 +54,7 @@ function addTask(pTask, pList) {
     pList.push(pTask);
     localStorage.setItem('taskList', JSON.stringify(pList));
     id++;
+    localStorage.setItem('id', JSON.stringify(id));
 }
 
 function init() {
@@ -75,6 +76,7 @@ init()
 function getDataForm(event) {
 
     event.preventDefault();
+    const lista = (localStorage.getItem('taskList')) ? JSON.parse(localStorage.getItem('taskList')) : [];
 
     if ((event.target.inputTask.value.length !== 0 && event.target.selectPriority.value === 'defaultOption') || (event.target.inputTask.value === '' || event.target.selectPriority === 'defaultOption') || (event.target.inputTask.value === '' && event.target.selectPriority === 'defaultOption')) {
         form.reset();
@@ -87,7 +89,7 @@ function getDataForm(event) {
             priority: event.target.selectPriority.value
         }
 
-        addTask(newTask, taskList);
+        addTask(newTask, lista);
         printOneTask(newTask, ulTask);
         form.reset();
     }

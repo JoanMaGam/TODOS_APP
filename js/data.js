@@ -15,4 +15,6 @@ const taskList = [
     //     'priority': 'mensual',
     // }
 ]
-let id = 4;
+
+let id = (localStorage.getItem('id')) ? JSON.parse(localStorage.getItem('id')) : 1;
+localStorage.setItem('id', id);
